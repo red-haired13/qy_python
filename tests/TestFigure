@@ -5,68 +5,68 @@ from qy_python.source.Figure import Rectangle, Triangle, Square, Circle
 
 def test_triangle_create():
     with pytest.raises(AttributeError):
-        Triangle('Triangle', 3)
+        Triangle('Triangle', 3, 5, 5, 6)
 
 
 def test_triangle_perimetr():
-    figure = Triangle('Triangle', 3).calculate_perimeter()
-    assert figure == 7
+    figure = Triangle('Triangle', 3, 5, 5, 6).calculate_perimeter()
+    assert figure == 12
 
 
 def test_triangle_area():
     """Понимаю, что работать будет не стабильно из-за дробной части"""
-    figure = Triangle('Triangle', 3).calculate_area()
+    figure = Triangle('Triangle', 3, 5, 5, 6).calculate_area()
     assert figure == 1.3905372163304368
 
 
 def test_rectangle_create():
     with pytest.raises(AttributeError):
-        Rectangle('Rectangle', 2)
+        Rectangle('Rectangle', 2, 4, 5)
 
 
 def test_rectangle_perimetr():
-    figure = Rectangle('Rectangle', 2).calculate_perimeter()
-    assert figure == 26
+    figure = Rectangle('Rectangle', 2, 4, 5).calculate_perimeter()
+    assert figure == 18
 
 
 def test_rectangle_area():
-    figure = Rectangle('Rectangle', 2).calculate_area()
-    assert figure == 40
+    figure = Rectangle('Rectangle', 2, 4, 5).calculate_area()
+    assert figure == 20
 
 
 def test_square_create():
     with pytest.raises(AttributeError):
-        Square('Square', 2)
+        Square('Square', 2, 2)
 
 
 def test_square_perimetr():
-    figure = Rectangle('Square', 2).calculate_perimeter()
-    assert figure == 20
+    figure = Rectangle('Square', 2, 2).calculate_perimeter()
+    assert figure == 8
 
 
 def test_square_area():
-    figure = Rectangle('Square', 2).calculate_area()
-    assert figure == 25
+    figure = Rectangle('Square', 2, 2).calculate_area()
+    assert figure == 4
 
 
 def test_circle_create():
     with pytest.raises(AttributeError):
-        Circle('Circle', 2)
+        Circle('Circle', 2, 5)
 
 
 def test_circle_perimetr():
     """Понимаю, что работать будет не стабильно из-за дробной части"""
-    figure = Rectangle('Circle', 2.5).calculate_perimeter()
+    figure = Rectangle('Circle', 2, 5).calculate_perimeter()
     assert figure == 31.41592653589793
 
 
 def test_square_area():
     """Понимаю, что работать будет не стабильно из-за дробной части"""
-    figure = Rectangle('Circle', 2.5).calculate_area()
+    figure = Rectangle('Circle', 2, 5).calculate_area()
     assert figure == 78.53981633974483
 
 
 def test_negative_compare():
-    tri = Triangle('Triangle', 3)
-    fig = Rectangle('Rectangle', 2)
+    tri = Triangle('Triangle', 3, 5, 5, 6)
+    fig = Rectangle('Rectangle', 2, 4, 5)
     assert tri == fig
